@@ -3,93 +3,951 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sara Lufrano Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Control Station | Portfolio Product Page Mock</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a78bfa;
+      --card: rgba(255,255,255,.07);
+      --border: rgba(255,255,255,.14);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(56,189,248,.22), transparent 32%),
+                  radial-gradient(circle at top right, rgba(167,139,250,.22), transparent 28%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 7vw;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .logo {
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .hero {
+      padding: 80px 7vw 70px;
+      max-width: 1280px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 42px;
+    }
+
+    .hero-content {
+      max-width: 930px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: .12em;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(46px, 7vw, 86px);
+      line-height: .95;
+      letter-spacing: -.07em;
+      margin: 0 0 24px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid var(--border);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #020617;
+      border: 0;
+    }
+
+    section {
+      padding: 72px 7vw;
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1;
+      letter-spacing: -.06em;
+      margin: 0 0 18px;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 800px;
+      margin-bottom: 38px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 22px;
+      letter-spacing: -.03em;
+    }
+
+    .card p, .card li { color: var(--muted); }
+
+    .architecture-panel {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.28);
+      overflow: hidden;
+    }
+
+    .architecture-header {
+      margin-bottom: 28px;
+    }
+
+    .architecture-header h2 {
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1;
+      letter-spacing: -.05em;
+      margin: 0 0 10px;
+    }
+
+    .architecture-header p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 720px;
+      font-size: 17px;
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-rows: auto auto auto;
+      gap: 24px;
+      position: relative;
+    }
+
+    .node-row {
+      display: grid;
+      gap: 14px;
+    }
+
+    .node-row.top {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .node-row.bottom {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .node {
+      border: 1px solid var(--border);
+      background: rgba(2, 6, 23, .48);
+      border-radius: 18px;
+      padding: 16px;
+      min-height: 94px;
+      position: relative;
+    }
+
+    .node strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .node span {
+      color: var(--soft);
+      font-size: 13px;
+      display: block;
+      line-height: 1.35;
+    }
+
+    .node-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, rgba(56,189,248,.24), rgba(167,139,250,.24));
+      color: var(--text);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .center-node-wrap {
+      display: grid;
+      place-items: center;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .center-node {
+      width: min(460px, 100%);
+      border: 1px solid rgba(56,189,248,.5);
+      background: linear-gradient(135deg, rgba(56,189,248,.16), rgba(167,139,250,.14));
+      border-radius: 22px;
+      padding: 26px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(56,189,248,.12);
+    }
+
+    .center-node strong {
+      display: block;
+      font-size: 26px;
+      letter-spacing: -.04em;
+    }
+
+    .center-node span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .connector {
+      height: 26px;
+      width: 2px;
+      background: linear-gradient(var(--accent), var(--accent2));
+      opacity: .8;
+      margin: auto;
+    }
+
+    .rail {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56,189,248,.65), rgba(167,139,250,.65), transparent);
+      margin: 0 7%;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 14px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item span { color: var(--muted); }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.05);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 18px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .comparison-table th {
+      color: var(--text);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      background: rgba(255,255,255,.07);
+    }
+
+    .comparison-table td {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .comparison-table tr:last-child td { border-bottom: 0; }
+
+    .comparison-table td:first-child {
+      color: var(--text);
+      font-weight: 800;
+      width: 24%;
+    }
+
+    .highlight-cell {
+      color: var(--text) !important;
+      font-weight: 700;
+      background: rgba(56,189,248,.08);
+    }
+
+    .note-card {
+      margin-top: 24px;
+      padding: 26px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(167,139,250,.10));
+      color: var(--muted);
+    }
+
+    .note-card strong { color: var(--text); }
+
+    .quote {
+      margin: 72px 7vw;
+      padding: 50px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(56,189,248,.18), rgba(167,139,250,.16));
+      border: 1px solid var(--border);
+      max-width: 1180px;
+    }
+
+    .quote p {
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -.05em;
+      margin: 0;
+    }
+
+    footer {
+      color: var(--soft);
+      padding: 54px 7vw 80px;
+      text-align: center;
+    }
+
+
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .problem-card {
+      background: rgba(239, 68, 68, .08);
+      border: 1px solid rgba(248, 113, 113, .22);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .solution-card {
+      background: rgba(56, 189, 248, .08);
+      border: 1px solid rgba(56, 189, 248, .24);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .problem-card h3,
+    .solution-card h3 {
+      margin-top: 0;
+      font-size: 24px;
+      letter-spacing: -.04em;
+    }
+
+    .problem-card li,
+    .solution-card li {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .deploy-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .deploy-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .deploy-date {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .deploy-item strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .deploy-item span {
+      color: var(--muted);
+    }
+
+    @media (max-width: 950px) {
+      .cards, .split, .before-after-grid { grid-template-columns: 1fr; }
+      .node-row.top, .node-row.bottom {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links { display: none; }
+      .deploy-item { grid-template-columns: 1fr; }
+      .comparison-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .node-row.top, .node-row.bottom {
+        grid-template-columns: 1fr;
+      }
+      .architecture-panel {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-  <header class="header">
-    <div>
-      <p class="eyebrow">SARA LUFRANO</p>
-      <h1>Principal Product Manager</h1>
-    </div>
-
-    <nav>
+  <nav class="nav">
+    <div class="logo">Sara Lufrano</div>
+    <div class="nav-links">
+      <a href="#architecture">Architecture</a>
+      <a href="#why-built">Why Built</a>
+      <a href="#platform">Platform</a>
+      <a href="#impact">Impact</a>
       <a href="#case-study">Case Study</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+      <a href="#comparison">Comparison</a>
+    </div>
+  </nav>
 
-  <section class="hero">
-    <p class="tag">
-      Revenue systems · Operational platforms · AI-enabled tooling
-    </p>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">Portfolio Case Study / Platform Product Page</div>
+        <h1>Control Station: the operating system for attraction commerce.</h1>
+        <p>
+          A modern ticketing, pricing, inventory, kiosk, and seller-management platform built to replace fragile legacy workflows and unlock faster launches, real-time operations, and revenue optimization.
+        </p>
+        <div class="buttons">
+          <a class="button primary" href="#case-study">View the case study</a>
+          <a class="button" href="#architecture">See platform architecture</a>
+        </div>
+      </div>
 
-    <h2>
-      I build systems that turn operational chaos into scalable products.
-    </h2>
+      <div id="architecture" class="architecture-panel">
+        <div class="architecture-header">
+          <h2>Platform architecture</h2>
+          <p>
+            Control Station connects guest-facing channels, on-site sales, seller partners, and internal operations through one configurable commerce platform.
+          </p>
+        </div>
 
-    <p class="hero-text">
-      Principal Product Manager focused on ticketing platforms,
-      revenue optimization, enterprise admin tools,
-      and AI-enabled customer operations.
-    </p>
-  </section>
+        <div class="architecture">
+          <div class="node-row top">
+            <div class="node">
+              <div class="node-icon">W</div>
+              <strong>Web</strong>
+              <span>Direct-to-consumer ticketing</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">K</div>
+              <strong>Kiosks</strong>
+              <span>On-site self-service sales</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">B</div>
+              <strong>Box Office</strong>
+              <span>Staff-assisted admissions</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">O</div>
+              <strong>OTA Partners</strong>
+              <span>Real-time reseller channels</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">S</div>
+              <strong>Seller Partners</strong>
+              <span>Groups, resellers, and agents</span>
+            </div>
+          </div>
 
-  <section id="case-study" class="case-study">
-    <div class="card">
-      <p class="section-label">FEATURED CASE STUDY</p>
+          <div>
+            <div class="rail"></div>
+            <div class="connector"></div>
+            <div class="center-node-wrap">
+              <div class="center-node">
+                <strong>Control Station</strong>
+                <span>Commerce & operations platform</span>
+              </div>
+            </div>
+            <div class="connector"></div>
+            <div class="rail"></div>
+          </div>
 
-      <h3>Control Station</h3>
+          <div class="node-row bottom">
+            <div class="node">
+              <div class="node-icon">$</div>
+              <strong>Pricing Engine</strong>
+              <span>Rules, premium times, and revenue levers</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">I</div>
+              <strong>Inventory</strong>
+              <span>Capacity, availability, and timed entry</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">P</div>
+              <strong>Permissions</strong>
+              <span>Roles, seller access, and admin control</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">U</div>
+              <strong>Upsells</strong>
+              <span>Checkout offers, bundles, and promos</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">R</div>
+              <strong>Reporting</strong>
+              <span>Performance, trends, and business insight</span>
+            </div>
+            <div class="node">
+              <div class="node-icon">A</div>
+              <strong>APIs</strong>
+              <span>OTA, partner, and future AI/ML integrations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <p>
-        Modernizing ticketing operations across attractions,
-        sales channels, and revenue systems.
+
+    <section id="why-built">
+      <h2 class="section-title">Why we built it.</h2>
+      <p class="section-lead">
+        Control Station was not built because the business needed another admin tool. It was built because the existing operating model had become too fragile, too manual, and too dependent on disconnected systems to support modern attraction commerce.
       </p>
-    </div>
 
-    <div class="card">
-      <h4>The Problem</h4>
+      <div class="before-after-grid">
+        <div class="problem-card">
+          <h3>Before Control Station</h3>
+          <ul>
+            <li>Ticketing, pricing, discounts, sellers, and channel configuration were spread across brittle workflows and legacy tools.</li>
+            <li>Operational changes often required too much manual coordination, tribal knowledge, or engineering support.</li>
+            <li>Pricing strategy was hard to execute quickly across timed entry, premium demand periods, events, and partner channels.</li>
+            <li>Seller access, permissions, and partner configuration were difficult to manage cleanly at scale.</li>
+            <li>Kiosks, box office, web, and third-party sellers did not have a strong enough shared operating backbone.</li>
+          </ul>
+        </div>
 
-      <p>
-        Ticketing operations were spread across aging tools,
-        manual processes, and engineering-dependent workflows.
-        Pricing, inventory, seller management, and promotions
-        were difficult to manage at scale.
+        <div class="solution-card">
+          <h3>After Control Station</h3>
+          <ul>
+            <li>A single configurable commerce platform for products, pricing, inventory, sellers, roles, discounts, bundles, and channels.</li>
+            <li>Operators could launch and manage business changes with less dependency on one-off technical work.</li>
+            <li>Dynamic pricing and upsell tools gave the business new revenue levers across high-demand inventory and checkout flows.</li>
+            <li>Role-based access and seller management created clearer governance across internal users and external partners.</li>
+            <li>The platform created a foundation for real-time APIs, improved reporting, kiosks, and future AI/ML pricing intelligence.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="deploy-calendar">
+      <h2 class="section-title">Platform rollout timeline.</h2>
+      <p class="section-lead">
+        Control Station was delivered through a phased modernization roadmap, layering payments, permissions, pricing, inventory, integrations, front ends, reporting, and revenue optimization into one operational platform.
       </p>
-    </div>
 
-    <div class="card">
-      <h4>My Role</h4>
+      <div class="deploy-grid">
+        <div class="deploy-item">
+          <div class="deploy-date">August 2024</div>
+          <div>
+            <strong>Digital ticketing foundation</strong>
+            <span>Digital tickets became available at Box Office and Kiosks.</span>
+          </div>
+        </div>
 
-      <p>
-        Led product strategy, UX direction, requirements,
-        rollout coordination, stakeholder alignment,
-        and launch planning across multiple teams and systems.
+        <div class="deploy-item">
+          <div class="deploy-date">February 2025</div>
+          <div>
+            <strong>User management and access control</strong>
+            <span>Launched user management, roles, and permissions.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">March 2025</div>
+          <div>
+            <strong>Box Office payment modernization</strong>
+            <span>Integrated US Bank and Tap to Pay at Box Office.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">May 6, 2025</div>
+          <div>
+            <strong>Kiosk payment modernization</strong>
+            <span>Integrated US Bank and Tap to Pay at Kiosks.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">May 21, 2025</div>
+          <div>
+            <strong>Pricing and inventory controls</strong>
+            <span>Launched variable pricing management and inventory management.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">September 2025</div>
+          <div>
+            <strong>OCTO integration</strong>
+            <span>Built OCTO integration foundation for attraction commerce connectivity.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">October 7, 2025</div>
+          <div>
+            <strong>Seller and bundle configuration</strong>
+            <span>Launched Seller Manager and Bundle Manager.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">October 22, 2025</div>
+          <div>
+            <strong>Promotion tooling</strong>
+            <span>Launched Coupon Manager.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">November 2025</div>
+          <div>
+            <strong>GetYourGuide connectivity</strong>
+            <span>Launched GetYourGuide API integration.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">January 2026</div>
+          <div>
+            <strong>Major platform cutover</strong>
+            <span>Launched new kiosk and web front ends, new Box Office app, deprecated the legacy GuestX system, added US Bank web integration, and launched Power BI reporting.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">March 2026</div>
+          <div>
+            <strong>Ticket experience refresh</strong>
+            <span>Launched new digital and email ticket UI.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">April 2026</div>
+          <div>
+            <strong>New kiosk rollout begins</strong>
+            <span>Began installation and setup of new kiosks.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">May 5, 2026</div>
+          <div>
+            <strong>Revenue optimization release</strong>
+            <span>Launched rules-based dynamic pricing, Upsell / Promo Manager, product-level discounts, unified inventory, and Daily Manager / Inventory Manager V2.</span>
+          </div>
+        </div>
+
+        <div class="deploy-item">
+          <div class="deploy-date">May 18, 2026</div>
+          <div>
+            <strong>Big-screen kiosk front ends</strong>
+            <span>Rolled out new big-screen front ends on the new kiosk hardware.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="platform">
+      <h2 class="section-title">Built for operators, sellers, finance, admissions, and guests.</h2>
+      <p class="section-lead">
+        Control Station unified the messy back-office realities of attraction commerce into a configurable platform: pricing, inventory, coupons, bundles, permissions, sellers, kiosks, box office, and third-party channels.
       </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Configure faster</h3>
+          <p>Create and manage tickets, discounts, bundles, seller access, roles, and channel-specific rules without engineering intervention for every operational change.</p>
+        </div>
+        <div class="card">
+          <h3>Sell everywhere</h3>
+          <p>Support box office, kiosk, web, group sales, and OTA/API partners through one operational source of truth.</p>
+        </div>
+        <div class="card">
+          <h3>Optimize revenue</h3>
+          <p>Enable rules-based dynamic pricing, upsell placement, premium time slots, and future ML-based pricing intelligence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <h2 class="section-title">Business impact, not just screens.</h2>
+      <p class="section-lead">
+        This portfolio format leads with the executive story: what changed for the business, why the platform mattered, and how the work reduced operational drag while creating new revenue levers.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Revenue growth</h3>
+          <p>Dynamic pricing and upsells created new optimization levers across high-demand times, event windows, premium inventory, and checkout conversion moments.</p>
+        </div>
+        <div class="card">
+          <h3>Operational stability</h3>
+          <p>Modernized legacy workflows, reduced manual configuration risk, improved deployment confidence, and gave operators clearer control over day-to-day sales setup.</p>
+        </div>
+        <div class="card">
+          <h3>Platform scalability</h3>
+          <p>Built foundations for third-party seller APIs, role-based access, real-time pricing/inventory, and future AI or ML pricing extensions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-study">
+      <div class="split">
+        <div>
+          <h2 class="section-title">The PM problem.</h2>
+          <p class="section-lead">
+            The work was not “make an admin page.” The real problem was turning years of operational complexity into a usable, reliable, extensible commerce platform.
+          </p>
+          <div class="pill-list">
+            <span class="pill">Platform strategy</span>
+            <span class="pill">Dynamic pricing</span>
+            <span class="pill">Kiosk modernization</span>
+            <span class="pill">OTA APIs</span>
+            <span class="pill">Roles & permissions</span>
+            <span class="pill">Inventory management</span>
+            <span class="pill">Upsells</span>
+            <span class="pill">Reporting foundations</span>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>01 / Discovery</strong>
+            <span>Mapped operational workflows across ticketing, sellers, channels, discounts, inventory, and admissions pain points.</span>
+          </div>
+          <div class="timeline-item">
+            <strong>02 / Product architecture</strong>
+            <span>Defined the system model for products, pricing, permissions, sales channels, bundles, and third-party integrations.</span>
+          </div>
+          <div class="timeline-item">
+            <strong>03 / MVP execution</strong>
+            <span>Led requirements, wireframes, prioritization, QA, stakeholder alignment, and launch sequencing across a large platform replacement.</span>
+          </div>
+          <div class="timeline-item">
+            <strong>04 / Revenue expansion</strong>
+            <span>Launched dynamic pricing and upsell tooling to move from operational modernization into active revenue optimization.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparison">
+      <h2 class="section-title">Why we built Control Station.</h2>
+      <p class="section-lead">
+        Off-the-shelf ticketing platforms are powerful, but attraction operators often need deeper control over pricing strategy, seller configuration, inventory rules, kiosks, and future revenue optimization. Control Station was built around those business-specific needs.
+      </p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Control Station</th>
+            <th>Ventrata</th>
+            <th>Gateway Ticketing</th>
+            <th>accesso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Core fit</td>
+            <td class="highlight-cell">Custom attraction-commerce platform built around internal operations</td>
+            <td>Tour, attraction, and experience ticketing platform</td>
+            <td>Enterprise ticketing and admissions platform</td>
+            <td>Enterprise ticketing, virtual queueing, and guest experience platform</td>
+          </tr>
+          <tr>
+            <td>Pricing control</td>
+            <td class="highlight-cell">Rules-based dynamic pricing built directly into the operating model</td>
+            <td>Dynamic pricing support available</td>
+            <td>Pricing configuration available; dynamic strategy may depend on setup</td>
+            <td>Revenue tools available, often within broader enterprise suite</td>
+          </tr>
+          <tr>
+            <td>Upsells & bundles</td>
+            <td class="highlight-cell">Built for attraction-specific bundles, promos, and checkout opportunities</td>
+            <td>Supports add-ons, bundles, and distribution-oriented sales flows</td>
+            <td>Supports packages, memberships, and admission products</td>
+            <td>Supports add-ons and guest experience products</td>
+          </tr>
+          <tr>
+            <td>Kiosks & box office</td>
+            <td class="highlight-cell">Designed around actual on-site hardware, admissions workflows, and operator needs</td>
+            <td>Kiosk and POS support available</td>
+            <td>Strong admissions and point-of-sale support</td>
+            <td>Supports on-site sales and guest flow products</td>
+          </tr>
+          <tr>
+            <td>OTA / seller integrations</td>
+            <td class="highlight-cell">Real-time APIs and seller permissions aligned to internal channel strategy</td>
+            <td>Major strength; strong OTA and reseller connectivity</td>
+            <td>Partner integrations and reseller connectivity</td>
+            <td>Distribution and partner connectivity available</td>
+          </tr>
+          <tr>
+            <td>Administrative control</td>
+            <td class="highlight-cell">Internal ownership of roadmap, configuration model, and priority tradeoffs</td>
+            <td>Vendor roadmap and configuration model</td>
+            <td>Vendor roadmap and enterprise implementation model</td>
+            <td>Vendor roadmap and enterprise implementation model</td>
+          </tr>
+          <tr>
+            <td>Future AI / ML readiness</td>
+            <td class="highlight-cell">Designed so pricing intelligence can later plug into the platform</td>
+            <td>May be supported through partners or platform extensions</td>
+            <td>Depends on implementation and integrations</td>
+            <td>Depends on product suite and integrations</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note-card">
+        <strong>Portfolio positioning:</strong> Control Station combines the operational depth of enterprise ticketing systems, the connectivity needs of modern attraction distribution, and the revenue optimization focus of a commerce platform — while keeping roadmap control inside the business.
+      </div>
+    </section>
+
+    <div class="quote">
+      <p>“This is the difference between showing wireframes and showing that you can run the product backbone of a real business.”</p>
     </div>
 
-    <div class="card">
-      <h4>Outcomes</h4>
+    <section id="systems">
+      <h2 class="section-title">What I would show underneath the pretty page.</h2>
+      <p class="section-lead">
+        The landing page earns attention. The case-study layer proves the work.
+      </p>
 
-      <ul>
-        <li>Enabled dynamic pricing initiatives</li>
-        <li>Reduced operational friction</li>
-        <li>Supported real-time inventory updates</li>
-        <li>Modernized kiosk and box office workflows</li>
-        <li>Created foundation for future AI/ML systems</li>
-      </ul>
-    </div>
-  </section>
+      <div class="cards">
+        <div class="card">
+          <h3>System diagrams</h3>
+          <ul>
+            <li>Sales channel architecture</li>
+            <li>Pricing rule flow</li>
+            <li>Inventory and capacity model</li>
+            <li>OTA/API data flow</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Product artifacts</h3>
+          <ul>
+            <li>Admin workflows</li>
+            <li>Role matrix</li>
+            <li>Launch plan</li>
+            <li>Dynamic pricing rule examples</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Outcome proof</h3>
+          <ul>
+            <li>Launch metrics</li>
+            <li>Revenue lift targets</li>
+            <li>Bug/stability improvements</li>
+            <li>Operational time saved</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <section id="contact" class="contact">
-    <h3>Let’s build the next operating system for messy real-world businesses.</h3>
-
-    <p>
-      Seattle, WA · saralufrano@gmail.com
-    </p>
-  </section>
-
+  <footer>
+    Example mockup for a PM portfolio that reads like a product landing page.
+  </footer>
 </body>
 </html>

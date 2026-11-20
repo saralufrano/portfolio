@@ -1,6 +1,6 @@
 # Sara Lufrano · Portfolio
 
-A static portfolio for a technical product leader and independent builder. Original textured SVG brushwork, ivory paper, blue/lavender/pink/gold accents, editorial typography, and restrained movement connect the homepage and three case studies.
+A static portfolio for a technical product leader and independent builder. Original watercolor artwork, ivory paper, blue/lavender/pink/gold accents, editorial typography, and restrained movement connect the homepage and three case studies.
 
 ## Preview
 
@@ -18,7 +18,7 @@ Open http://127.0.0.1:4173. No dependencies or build step are required.
 - `case-studies/`: Control Station platform replacement, CityPASS/GetYourGuide integrations and payments, and build/buy/retire decisions.
 - `style.css`: shared responsive layouts, print styles, and reduced-motion support.
 - `script.js`: accessible mobile navigation and current footer year.
-- `assets/brushwork.svg`: original procedural ink-and-watercolor illustration; no external image or font requests.
+- `assets/watercolor-splash.webp`: locally bundled watercolor artwork with transparency; no external image or font requests.
 
 The sizing illustration is editorial artwork, not an application screenshot. Case-study figures are preserved from the existing portfolio.
 

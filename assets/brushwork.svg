@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 850" fill="none">
+<defs><filter id="pigment" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".025 .07" numOctaves="3" seed="8" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="19"/><feGaussianBlur stdDeviation=".35"/></filter></defs>
+<g filter="url(#pigment)" stroke-linecap="round">
+<path d="M867 128C673 18 309 160 217 355C104 598 369 642 588 490C811 335 691 210 472 308C270 399 198 661 30 731" stroke="#a3bfdc" stroke-width="91" opacity=".4"/>
+<path d="M883 114C658 40 302 197 238 377C176 555 371 565 570 460C703 389 731 300 658 267" stroke="#527bbb" stroke-width="40" opacity=".67"/>
+<path d="M881 99C666 51 343 187 275 329C227 428 271 502 379 492" stroke="#284d8d" stroke-width="12" opacity=".8"/>
+<path d="M724 211C852 346 543 656 214 620C104 607 135 510 226 480" stroke="#a594c3" stroke-width="57" opacity=".48"/>
+<path d="M760 242C798 413 498 624 251 599" stroke="#d899ad" stroke-width="31" opacity=".66"/>
+<path d="M751 226C851 402 485 662 225 635" stroke="#bc8b42" stroke-width="4" opacity=".85"/>
+<path d="M618 366C430 455 346 727 70 775" stroke="#b8c9df" stroke-width="24" opacity=".6"/>
+<path d="M679 275C518 271 368 438 304 555" stroke="#f5f2eb" stroke-width="9" opacity=".8"/>
+</g>
+<g fill="#476da4" opacity=".55"><circle cx="194" cy="286" r="4"/><circle cx="171" cy="311" r="2"/><circle cx="697" cy="574" r="3"/><circle cx="677" cy="595" r="5"/><circle cx="718" cy="554" r="2"/></g>
+<g fill="#b78c48"><circle cx="580" cy="154" r="3"/><circle cx="601" cy="146" r="1.5"/><circle cx="555" cy="164" r="2"/></g>
+</svg>

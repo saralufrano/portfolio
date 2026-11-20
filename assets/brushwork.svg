@@ -1,15 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 850" fill="none">
-<defs><filter id="pigment" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".025 .07" numOctaves="3" seed="8" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="19"/><feGaussianBlur stdDeviation=".35"/></filter></defs>
+<defs>
+  <filter id="pigment" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency=".025 .07" numOctaves="3" seed="8" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="19"/>
+    <feGaussianBlur stdDeviation=".35"/>
+  </filter>
+</defs>
+<!-- Uneven, overlapping pigment passes: cobalt and ice blue carry the movement;
+     violet, rose and sun-yellow appear as separate gestures, not parallel bands. -->
 <g filter="url(#pigment)" stroke-linecap="round">
-<path d="M867 128C673 18 309 160 217 355C104 598 369 642 588 490C811 335 691 210 472 308C270 399 198 661 30 731" stroke="#a3bfdc" stroke-width="91" opacity=".4"/>
-<path d="M883 114C658 40 302 197 238 377C176 555 371 565 570 460C703 389 731 300 658 267" stroke="#527bbb" stroke-width="40" opacity=".67"/>
-<path d="M881 99C666 51 343 187 275 329C227 428 271 502 379 492" stroke="#284d8d" stroke-width="12" opacity=".8"/>
-<path d="M724 211C852 346 543 656 214 620C104 607 135 510 226 480" stroke="#a594c3" stroke-width="57" opacity=".48"/>
-<path d="M760 242C798 413 498 624 251 599" stroke="#d899ad" stroke-width="31" opacity=".66"/>
-<path d="M751 226C851 402 485 662 225 635" stroke="#bc8b42" stroke-width="4" opacity=".85"/>
-<path d="M618 366C430 455 346 727 70 775" stroke="#b8c9df" stroke-width="24" opacity=".6"/>
-<path d="M679 275C518 271 368 438 304 555" stroke="#f5f2eb" stroke-width="9" opacity=".8"/>
+  <path d="M867 128C673 18 309 160 217 355C104 598 369 642 588 490C811 335 691 210 472 308C270 399 198 661 30 731" stroke="#57b9ef" stroke-width="91" opacity=".32"/>
+  <path d="M883 114C658 40 302 197 238 377C176 555 371 565 570 460C703 389 731 300 658 267" stroke="#1677db" stroke-width="40" opacity=".78"/>
+  <path d="M881 99C666 51 343 187 275 329C227 428 271 502 379 492" stroke="#244cc3" stroke-width="12" opacity=".88"/>
+  <path d="M806 130C672 114 512 163 417 226" stroke="#80d5f4" stroke-width="27" opacity=".47"/>
+  <path d="M724 211C792 285 738 384 632 468" stroke="#7251d1" stroke-width="59" opacity=".57"/>
+  <path d="M756 246C794 307 738 388 673 430" stroke="#b447c4" stroke-width="23" opacity=".65"/>
+  <path d="M674 434C534 554 361 612 225 588" stroke="#ef669d" stroke-width="32" opacity=".63"/>
+  <path d="M528 549C428 602 294 631 207 606C159 591 164 555 196 527" stroke="#f3c741" stroke-width="24" opacity=".76"/>
+  <path d="M470 582C377 621 284 642 225 635" stroke="#e3a92e" stroke-width="4" opacity=".86"/>
+  <path d="M618 366C430 455 346 727 70 775" stroke="#65b9ed" stroke-width="24" opacity=".48"/>
+  <path d="M679 275C518 271 368 438 304 555" stroke="#fdfcf9" stroke-width="9" opacity=".88"/>
 </g>
-<g fill="#476da4" opacity=".55"><circle cx="194" cy="286" r="4"/><circle cx="171" cy="311" r="2"/><circle cx="697" cy="574" r="3"/><circle cx="677" cy="595" r="5"/><circle cx="718" cy="554" r="2"/></g>
-<g fill="#b78c48"><circle cx="580" cy="154" r="3"/><circle cx="601" cy="146" r="1.5"/><circle cx="555" cy="164" r="2"/></g>
+<g fill="#2378d1" opacity=".65">
+  <circle cx="194" cy="286" r="4"/><circle cx="171" cy="311" r="2"/>
+  <circle cx="697" cy="574" r="3"/><circle cx="718" cy="554" r="2"/>
+</g>
+<g fill="#dcb331" opacity=".9">
+  <circle cx="580" cy="154" r="3"/><circle cx="601" cy="146" r="1.5"/>
+  <circle cx="555" cy="164" r="2"/><circle cx="187" cy="650" r="4"/>
+</g>
+<g fill="#bd4caf" opacity=".65"><circle cx="677" cy="595" r="5"/><circle cx="696" cy="610" r="2"/></g>
 </svg>

@@ -1,5 +1,5 @@
 :root{
-  --paper:#faf8f2;
+  --paper:#fdfcf9;
   --ink:#202e46;
   --text:#33415a;
   --muted:#566079;
@@ -72,7 +72,7 @@ a:focus-visible,button:focus-visible{
   position:sticky;
   top:0;
   z-index:30;
-  background:#faf8f2f5;
+  background:#fdfcf9f5;
   border-bottom:1px solid var(--line)}
 .header-inner{
   min-height:94px;
@@ -323,7 +323,7 @@ a:focus-visible,button:focus-visible{
   font-size:15px;
   padding:10px 20px;
   border:1px solid #9c94b0;
-  background:#faf8f2;
+  background:#fdfcf9;
   z-index:1}
 .mini-track{
   position:absolute;

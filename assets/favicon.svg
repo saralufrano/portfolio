@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#fefefd"/><path d="M51 15C20 5 8 45 28 46S60 17 36 24 20 57 9 56" fill="none" stroke="#1677db" stroke-width="7"/><path d="M51 25C59 40 33 54 20 48" fill="none" stroke="#ef669d" stroke-width="4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Sara Lufrano</title>
+  <rect width="64" height="64" rx="13" fill="#315d98"/>
+  <text x="8" y="46" fill="#fefefd" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-style="italic" letter-spacing="-5">SL</text>
+  <circle cx="52" cy="14" r="4" fill="#cdb2e8"/>
+</svg>

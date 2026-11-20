@@ -19,7 +19,7 @@
   <path d="M528 549C428 602 294 631 207 606C159 591 164 555 196 527" stroke="#f3c741" stroke-width="24" opacity=".76"/>
   <path d="M470 582C377 621 284 642 225 635" stroke="#e3a92e" stroke-width="4" opacity=".86"/>
   <path d="M618 366C430 455 346 727 70 775" stroke="#65b9ed" stroke-width="24" opacity=".48"/>
-  <path d="M679 275C518 271 368 438 304 555" stroke="#fdfcf9" stroke-width="9" opacity=".88"/>
+  <path d="M679 275C518 271 368 438 304 555" stroke="#fefefd" stroke-width="9" opacity=".88"/>
 </g>
 <g fill="#2378d1" opacity=".65">
   <circle cx="194" cy="286" r="4"/><circle cx="171" cy="311" r="2"/>
